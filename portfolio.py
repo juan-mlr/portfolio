@@ -33,15 +33,21 @@ def main():
                 '### 1. [Education](#education)\n'
                 '### 2. [Technical Skills](#technical-skills)\n'
                 '### 3. [Experience](#experience)\n'
-                '### 4. [Papers](#papers)\n'
+                '### 4. [Papers](#papers)\n',
+            unsafe_allow_html=True
             )
             resume.st_education()
             resume.st_technical_skills()
             resume.st_experience()
             resume.st_papers()
 
-    #    with ldmx_tab:
-    #        ldmx.st_exec_summary()
+        #with ldmx_tab:
+        #ldmx.st_exec_summary()
+
+        st.markdown(
+            '[:arrow_up: Go to top](#juan-manuel-lazaro-ruiz)',
+            unsafe_allow_html=True
+        )
 
 if __name__ == "__main__":
     main()
