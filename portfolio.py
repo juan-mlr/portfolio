@@ -1,6 +1,7 @@
 import streamlit as st
-import resume
-#import ldmx
+from tabs import resume
+from tabs import ldmx
+from tabs import bird_class
 
 def main():
 
@@ -23,9 +24,9 @@ def main():
         )
 
         resume_tab, ldmx_tab, bird_class_tab = st.tabs([
-            'Resume :page_facing_up:',
-            'LDMX :dark_sunglasses:',
-            'bird-class :penguin:'
+            ':page_facing_up: Resume',
+            ':dark_sunglasses: LDMX',
+            ':penguin: Bird Class'
         ])
 
         with resume_tab:
@@ -41,8 +42,11 @@ def main():
             resume.st_experience()
             resume.st_papers()
 
-        #with ldmx_tab:
-        #ldmx.st_exec_summary()
+        with ldmx_tab:
+            ldmx.st_all()
+
+        with bird_class_tab:
+            bird_class.st_all()
 
         st.markdown(
             '[:arrow_up: Go to top](#juan-manuel-lazaro-ruiz)',
@@ -51,4 +55,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

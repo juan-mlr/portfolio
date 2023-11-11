@@ -13,21 +13,22 @@ def st_left_right_align(left_text: str, right_text: str):
 def st_technical_skills():
     st.header('Technical Skills')
     with st.expander('Show/Hide', expanded=True):
-        st.subheader('Programming:')
+        st.subheader('Programming and Software:')
         st.markdown("""
             - __Python__
                 - __Numerical__: NumPy, SciPy, Statsmodels
                 - __Data__: Pandas, SQLAlchemy, requests, FastAPI
                 - __Machine Learning__: Scikit-Learn, PyTorch, TensorFlow, Hyperopt
                 - __Distributed computing__: PySpark
-                - __Visualizations__: Matplotlib, Seaborn, Jupyter, Streamliti
+                - __Visualizations__: Matplotlib, Seaborn, Jupyter, Streamlit
             - __SQL__: PostgreSQL, MySQL, SQLite
             - __Distributed Computing__: LSF, Slurm
-            - __Git/Github__
+            - __Git/GitHub/GitLab__
             - __Linux__
             - __Bash__
             - __Docker__
             - __Other__:
+                - LaTeX ($\LaTeX$)
                 - Microsoft Excel, Microsoft PowerPoint
             """)
         st.subheader('Data Science and Machine Learning')
@@ -59,18 +60,7 @@ def st_technical_skills():
 def st_education():
     st.header('Education')
     with st.expander('Show/Hide', expanded=True):
-        st_left_right_align(
-            'The Data Incubator'
-            ' | Fellowship Program'
-            ' | <a href="https://www.credly.com/badges/fb690af3-ce80-4a53-b6d6-7cb18e93fb8e/linked_in_profile" target="_blank">Data Scientist Certification</a>',
-            'Sep 2023'
-        )
-        st_left_right_align(
-            'DataCamp'
-            ' | <a href="https://www.datacamp.com/certificate/DS0023881595718" target="_blank">Data Science Professional Certification</a>'
-            ' | Valid through Mar 2025',
-            'Mar 2023'
-        )
+        st.markdown('#### Degrees')
         st_left_right_align(
             'Coursework toward Ph.D. in Physics | Massachusetts Institute of Technology (MIT)',
             'Feb 2022 - Nov 2022'
@@ -85,6 +75,19 @@ def st_education():
             - UCSB McNair Fellowship
             - UCSB Promise Scholar
         """)
+        st.markdown('#### Certifications')
+        st_left_right_align(
+            'The Data Incubator'
+            ' | Fellowship Program'
+            ' | <a href="https://www.credly.com/badges/fb690af3-ce80-4a53-b6d6-7cb18e93fb8e/linked_in_profile" target="_blank">Data Scientist Certification</a>',
+            'Sep 2023'
+        )
+        st_left_right_align(
+            'DataCamp'
+            ' | <a href="https://www.datacamp.com/certificate/DS0023881595718" target="_blank">Data Science Professional Certification</a>'
+            ' | Valid through Mar 2025',
+            'Mar 2023'
+        )
 
 def st_experience():
     st.header('Experience')
