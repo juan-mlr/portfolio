@@ -6,9 +6,9 @@ from tabs import bird_class
 def main():
 
     st.set_page_config(
+        page_icon=':chart_with_upwards_trend:',
+        page_title='Juan Manuel Lazaro Ruiz',
         layout='wide',
-        initial_sidebar_state='auto',
-        menu_items=None
     )
 
     # layout TBD
@@ -31,6 +31,7 @@ def main():
 
         with resume_tab:
             st.markdown(
+                '## Sections:\n'
                 '### 1. [Education](#education)\n'
                 '### 2. [Technical Skills](#technical-skills)\n'
                 '### 3. [Experience](#experience)\n'
