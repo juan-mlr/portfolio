@@ -10,69 +10,54 @@ LDMX_COLLAB_IMAGE_URL = 'https://confluence.slac.stanford.edu/download/attachmen
 def st_exec_summary():
     st.subheader('Executive Summary')
     st.markdown("""
-    On this page, I discuss the work I did as an LDMX collaborator during my
-    time as an undergraduate at the University of California, Santa Barbara
-    (UCSB). It is ___not___ meant as ...
+        On this page, I discuss the work I did as an LDMX collaborator during
+        my time as an undergraduate at the University of California, Santa
+        Barbara (UCSB). This does ___not___ represent LDMX as a whole. Sections
+        are in chronological order and reflect a growing skill set.
+
+        At a high level, LDMX is an experiment looking for evidence of a yet
+        undiscovered particle, dark matter. The physical component of LDMX
+        consists of an electron beam aimed at a tungsten target with a
+        composite detector behind the target. I focused on the analysis of
+        interactions in the detector following electron-tungsten interactions,
+        collectively reffered to as events. The ultimate goal of this analysis
+        was to reliably separate background (caused by particles and
+        interactions in the Standard Model of particle physics) events from
+        signal (caused by undiscovered dark matter) events.
+
+        First, I helped to develop a particle tracking algorithm that rejected
+        the last 10 background events in a set of simulations equivalent to
+        $2 \\times 10^{14}$ electrons on target. Provided dark matter exists
+        and interacts with Standard Model particles according to the operating
+        model, this was evidence that LDMX's physical design and the
+        accompanying series of analysis methods were capable of formally
+        discovering dark matter.
     """)
 
 def st_experiment_background():
     st.subheader('Experiment Background')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
-            Doloremque dignissimos debitis hic tempora quas quod. Nam vitae iusto ducimus. Nesciunt at labore assumenda laboriosam architecto tempora. Est non laudantium nemo. In voluptatem earum reprehenderit vel nostrum.
-
-            Non repudiandae consectetur aliquam. Sint dolores iste repudiandae delectus eum sapiente aut autem. Eos molestiae dolor officia voluptatem quo voluptas consectetur fugiat.
-
-            Libero nulla in eligendi nam eius est sit. Rerum eos omnis nemo sint. Voluptatibus et rerum laboriosam distinctio voluptatem ut sed magni. Perferendis eum rerum deserunt neque sint atque deleniti ducimus. Nihil eaque sapiente ipsa nam natus. Illum sint quibusdam quia hic esse tempore.
-
-            Non voluptatem et consectetur ipsa qui sint rerum. Enim nostrum qui repudiandae harum incidunt esse. Quia et ea esse ut est nemo sed pariatur.
-
-            Quisquam placeat aut quas ullam deleniti animi. Eos nemo reprehenderit aliquam quam. Fuga unde expedita et consequatur. Excepturi fuga blanditiis expedita architecto.
+            My first foray into LDMX analysis was developing a particle
+            tracking algorithm.
         """)
 
 def st_particle_tracking():
     st.subheader('Particle Tracking')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
-            Doloremque dignissimos debitis hic tempora quas quod. Nam vitae iusto ducimus. Nesciunt at labore assumenda laboriosam architecto tempora. Est non laudantium nemo. In voluptatem earum reprehenderit vel nostrum.
-
-            Non repudiandae consectetur aliquam. Sint dolores iste repudiandae delectus eum sapiente aut autem. Eos molestiae dolor officia voluptatem quo voluptas consectetur fugiat.
-
-            Libero nulla in eligendi nam eius est sit. Rerum eos omnis nemo sint. Voluptatibus et rerum laboriosam distinctio voluptatem ut sed magni. Perferendis eum rerum deserunt neque sint atque deleniti ducimus. Nihil eaque sapiente ipsa nam natus. Illum sint quibusdam quia hic esse tempore.
-
-            Non voluptatem et consectetur ipsa qui sint rerum. Enim nostrum qui repudiandae harum incidunt esse. Quia et ea esse ut est nemo sed pariatur.
-
-            Quisquam placeat aut quas ullam deleniti animi. Eos nemo reprehenderit aliquam quam. Fuga unde expedita et consequatur. Excepturi fuga blanditiis expedita architecto.
         """)
 
 def st_vd_at_caltech():
-    st.subheader('Visible Decay Search Beginnings at Caltech')
+    st.subheader('Visible Decay Search with ML Beginnings at Caltech')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
-            Doloremque dignissimos debitis hic tempora quas quod. Nam vitae iusto ducimus. Nesciunt at labore assumenda laboriosam architecto tempora. Est non laudantium nemo. In voluptatem earum reprehenderit vel nostrum.
-
-            Non repudiandae consectetur aliquam. Sint dolores iste repudiandae delectus eum sapiente aut autem. Eos molestiae dolor officia voluptatem quo voluptas consectetur fugiat.
-
-            Libero nulla in eligendi nam eius est sit. Rerum eos omnis nemo sint. Voluptatibus et rerum laboriosam distinctio voluptatem ut sed magni. Perferendis eum rerum deserunt neque sint atque deleniti ducimus. Nihil eaque sapiente ipsa nam natus. Illum sint quibusdam quia hic esse tempore.
-
-            Non voluptatem et consectetur ipsa qui sint rerum. Enim nostrum qui repudiandae harum incidunt esse. Quia et ea esse ut est nemo sed pariatur.
-
-            Quisquam placeat aut quas ullam deleniti animi. Eos nemo reprehenderit aliquam quam. Fuga unde expedita et consequatur. Excepturi fuga blanditiis expedita architecto.
         """)
 
 def st_senior_thesis():
     st.subheader('Formalizing Search and Expanding ML Framework for Senior Thesis')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
-            Doloremque dignissimos debitis hic tempora quas quod. Nam vitae iusto ducimus. Nesciunt at labore assumenda laboriosam architecto tempora. Est non laudantium nemo. In voluptatem earum reprehenderit vel nostrum.
-
-            Non repudiandae consectetur aliquam. Sint dolores iste repudiandae delectus eum sapiente aut autem. Eos molestiae dolor officia voluptatem quo voluptas consectetur fugiat.
-
-            Libero nulla in eligendi nam eius est sit. Rerum eos omnis nemo sint. Voluptatibus et rerum laboriosam distinctio voluptatem ut sed magni. Perferendis eum rerum deserunt neque sint atque deleniti ducimus. Nihil eaque sapiente ipsa nam natus. Illum sint quibusdam quia hic esse tempore.
-
-            Non voluptatem et consectetur ipsa qui sint rerum. Enim nostrum qui repudiandae harum incidunt esse. Quia et ea esse ut est nemo sed pariatur.
-
-            Quisquam placeat aut quas ullam deleniti animi. Eos nemo reprehenderit aliquam quam. Fuga unde expedita et consequatur. Excepturi fuga blanditiis expedita architecto.
         """)
 
     with open(THESIS_FILE_PATH, 'rb') as file:
@@ -91,7 +76,7 @@ def st_all():
         '### Sections\n'
         '#### 1. [Experiment Background](#experiment-background)\n'
         '#### 2. [Particle Tracking](#particle-tracking)\n'
-        '#### 3. [Visible Decay Search Beginnings at Caltech](#visible-decay-search-beginnings-at-caltech)\n'
+        '#### 3. [Visible Decay Search with ML Beginnings at Caltech](#visible-decay-search-with-ml-beginnings-at-caltech)\n'
         '#### 4. [Formalizing Search and Expanding ML Framework for Senior Thesis](#formalizing-search-and-expanding-ml-framework-for-senior-thesis)\n',
         unsafe_allow_html=True
     )

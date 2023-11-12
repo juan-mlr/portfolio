@@ -34,15 +34,11 @@ def st_technical_skills():
         st.subheader('Data Science and Machine Learning')
         st.markdown("""
             - __Extract, transform, and load (ETL)__
-                - __Data Collection__
-                - __Data Wrangling__
-                - __Data Cleaning__
+                - __Data Collection__, __Data Wrangling__, __Data Cleaning__
             - __Data Analysis__
             - __Modeling__
-                - Classification
-                - Regression
-                - Time Series
-                - Anomaly Detection
+                - Feature Engineering, Feature Selection
+                - Classification, Regression, Time Series, Anomaly Detection
             - __Data Visualization__
             - __Model Deployment__
             """)
