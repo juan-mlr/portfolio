@@ -149,7 +149,7 @@ def st_all():
     st_exec_summary()
     st.divider()
     st.markdown(
-        '### Sections\n'
+        '### Contents\n'
         '#### 1. [Experiment Background](#experiment-background)\n'
         '#### 2. [Particle Tracking](#particle-tracking)\n'
         '#### 3. [Visible Decay Search with ML Beginnings at Caltech](#visible-decay-search-with-ml-beginnings-at-caltech)\n'

@@ -130,3 +130,17 @@ def st_papers():
             - Discusses particle tracking algorithm I helped develop which is the final step in rejecting all simulated background events.
             - Includes visualizations I created.
         """)
+
+def st_all():
+    st.markdown(
+        '### Contents:\n'
+        '#### 1. [Education](#education)\n'
+        '#### 2. [Technical Skills](#technical-skills)\n'
+        '#### 3. [Experience](#experience)\n'
+        '#### 4. [Papers](#papers)\n',
+    unsafe_allow_html=True
+    )
+    st_education()
+    st_technical_skills()
+    st_experience()
+    st_papers()
