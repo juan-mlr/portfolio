@@ -2,7 +2,8 @@ import streamlit as st
 import os
 
 
-THESIS_FILE_NAME = 'exploring_visible_decay_scenarios_in_ldmx.pdf'
+THESIS_NAME = 'Exploring Visible Decay Scenarios In The Light Dark Matter eXperiment'
+THESIS_FILE_NAME = THESIS_NAME.lower().replace(' ', '_') + '.pdf'
 THESIS_FILE_PATH = os.path.join(os.getcwd(), 'assets', THESIS_FILE_NAME)
 LDMX_HOME_URL = 'https://confluence.slac.stanford.edu/display/MME/Light+Dark+Matter+Experiment'
 LDMX_COLLAB_IMAGE_URL = 'https://confluence.slac.stanford.edu/download/attachments/210534721/LDMX_institution_logos_aug2022.png?version=1&modificationDate=1661352351000&api=v2'
@@ -10,7 +11,7 @@ LDMX_COLLAB_IMAGE_URL = 'https://confluence.slac.stanford.edu/download/attachmen
 def st_download_thesis(key: str):
     with open(THESIS_FILE_PATH, 'rb') as file:
         st.download_button(
-            label=f"Download {THESIS_FILE_NAME}",
+            label=f'Download "{THESIS_NAME}" (PDF)',
             data=file,
             file_name=THESIS_FILE_NAME,
             mime="application/pdf",
