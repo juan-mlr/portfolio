@@ -11,7 +11,7 @@ def st_left_right_align(left_text: str, right_text: str):
     )
 
 def st_technical_skills():
-    st.header('Technical Skills')
+    st.subheader('Technical Skills')
     with st.expander('Show/Hide', expanded=True):
         st.subheader('Programming and Software:')
         st.markdown("""
@@ -22,11 +22,12 @@ def st_technical_skills():
                 - __Distributed computing__: PySpark
                 - __Visualizations__: Matplotlib, Seaborn, Jupyter, Streamlit
             - __SQL__: PostgreSQL, MySQL, SQLite
-            - __Distributed Computing__: LSF, Slurm
+            - __Distributed Computing__: IBM Spectrum LSF, Slurm Workload Manager
             - __Git/GitHub/GitLab__
             - __Linux__
             - __Bash__
             - __Docker__
+            - __ROOT Data Analysis Framework__
             - __Other__:
                 - LaTeX ($\LaTeX$)
                 - Microsoft Excel, Microsoft PowerPoint
@@ -54,7 +55,7 @@ def st_technical_skills():
 
 
 def st_education():
-    st.header('Education')
+    st.subheader('Education')
     with st.expander('Show/Hide', expanded=True):
         st.markdown('#### Degrees')
         st_left_right_align(
@@ -86,7 +87,7 @@ def st_education():
         )
 
 def st_experience():
-    st.header('Experience')
+    st.subheader('Experience')
     with st.expander('Show/Hide', expanded=True):
         st_left_right_align(
             'MASSACHUSETTS INSTITUTE OF TECHNOLOGY',
@@ -118,7 +119,7 @@ def st_experience():
         """)
 
 def st_papers():
-    st.header('Papers')
+    st.subheader('Papers')
     with st.expander('Show/Hide', expanded=True):
         st_left_right_align(
             '<a href="https://link.springer.com/article/10.1007/JHEP04(2020)003" target="_blank">A high efficiency photon veto for the Light Dark Matter eXperiment</a>',

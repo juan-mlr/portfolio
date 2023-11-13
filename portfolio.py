@@ -31,11 +31,11 @@ def main():
 
         with resume_tab:
             st.markdown(
-                '## Sections:\n'
-                '### 1. [Education](#education)\n'
-                '### 2. [Technical Skills](#technical-skills)\n'
-                '### 3. [Experience](#experience)\n'
-                '### 4. [Papers](#papers)\n',
+                '### Sections:\n'
+                '#### 1. [Education](#education)\n'
+                '#### 2. [Technical Skills](#technical-skills)\n'
+                '#### 3. [Experience](#experience)\n'
+                '#### 4. [Papers](#papers)\n',
             unsafe_allow_html=True
             )
             resume.st_education()
