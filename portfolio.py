@@ -4,6 +4,14 @@ from tabs import ldmx
 from tabs import bird_class
 from tabs import sss
 
+
+TAB_LABEL_MODULES = {
+    ':page_facing_up: Resume': resume,
+    ':dark_sunglasses: LDMX': ldmx,
+    ':penguin: Bird Class': bird_class,
+    ':headphones: Special-Song-Search': sss,
+}
+
 def main():
 
     st.set_page_config(
@@ -24,35 +32,10 @@ def main():
             unsafe_allow_html=True
         )
 
-        resume_tab, ldmx_tab, bird_class_tab, sss_tab = st.tabs([
-            ':page_facing_up: Resume',
-            ':dark_sunglasses: LDMX',
-            ':penguin: Bird Class',
-            ':headphones: Special-Song-Search'
-        ])
-
-        with resume_tab:
-            st.markdown(
-                '### Sections:\n'
-                '#### 1. [Education](#education)\n'
-                '#### 2. [Technical Skills](#technical-skills)\n'
-                '#### 3. [Experience](#experience)\n'
-                '#### 4. [Papers](#papers)\n',
-            unsafe_allow_html=True
-            )
-            resume.st_education()
-            resume.st_technical_skills()
-            resume.st_experience()
-            resume.st_papers()
-
-        with ldmx_tab:
-            ldmx.st_all()
-
-        with bird_class_tab:
-            bird_class.st_all()
-
-        with sss_tab:
-            sss.st_all()
+        tabs = st.tabs(TAB_LABEL_MODULES.keys())
+        for tab, tab_module in zip(tabs, TAB_LABEL_MODULES.values()):
+            with tab:
+                tab_module.st_all()
 
         st.markdown(
             '[:arrow_up: Go to top](#juan-manuel-lazaro-ruiz)',
