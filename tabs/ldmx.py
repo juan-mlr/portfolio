@@ -20,7 +20,7 @@ def st_download_thesis(key: str):
 
 def st_exec_summary():
     st.subheader('Executive Summary')
-    st.markdown("""
+    st.markdown(f"""
         On this page, I discuss the work I did as an LDMX collaborator during
         my time as an undergraduate at the University of California, Santa
         Barbara (UCSB). This does ___not___ represent LDMX as a whole. Sections
@@ -38,7 +38,7 @@ def st_exec_summary():
 
         First, I helped to develop a particle tracking algorithm that rejected
         the last 10 background events in a set of simulations equivalent to
-        $2 \\times 10^{14}$ electrons on target. Provided dark matter exists
+        $2 \\times 10^{{14}}$ electrons on target. Provided dark matter exists
         and interacts with Standard Model particles according to the operating
         model, this was evidence that LDMX's physical design and the
         accompanying series of analysis methods were capable of formally
@@ -50,21 +50,30 @@ def st_exec_summary():
         search. I generated new simulations with Geant4, extracted relevant
         data, and performed feature engineering to minimize decay length bias.
 
-        For my senior thesis "Exploring Visible Decay Scenarios In The Light
-        Dark Matter eXperiment," I expanded greatly on the work I started
-        during my WAVE fellowship. I made more accurate simulations of visible
-        signal, combined data from more subdetectors, and completely redesigned
-        the framework we had around XGBoost to facilitate developing new models
-        for feature selection. Ultimately, I provided the first large
-        statistical evidence of LDMX's sensitivity to visible dark matter.
+        For my senior thesis "{THESIS_NAME}," I expanded greatly on the work I
+        started during my WAVE fellowship. I made more accurate simulations of
+        visible signal, combined data from more subdetectors, and completely
+        redesigned the framework we had around XGBoost to facilitate developing
+        new models for feature selection. Ultimately, I provided the first
+        large statistical evidence of LDMX's sensitivity to visible dark
+        matter.
     """)
     st_download_thesis('thesis_download_exec')
 
 def st_experiment_background():
     st.subheader('Experiment Background')
     with st.expander('Show/Hide', expanded=True):
-        st.markdown("""
-        """)
+        st.markdown(
+            f"""
+            This section provides just as much background information as is
+            required to understand my work in LDMX. As stated above, this page
+            does not represent LDMX. For official documents, see
+            [here]({LDMX_HOME_URL}).
+
+            ...
+            """,
+            unsafe_allow_html=True
+        )
 
 def st_particle_tracking():
     st.subheader('Particle Tracking')
@@ -72,7 +81,7 @@ def st_particle_tracking():
         st.markdown("""
             My first foray into LDMX analysis was developing a particle
             tracking algorithm. I did this in partnership with a graduate
-            student at the time.
+            student at the time...
 
             __Tools used:__
             - Python (NumPy, Matplotlib)
@@ -87,7 +96,7 @@ def st_vd_at_caltech():
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
             This was made more difficult due to the need to avoid decay
-            length bias.
+            length bias...
 
             __Tools used (*New):__
             - Python (NumPy, Matplotlib, __XGBoost*__)
@@ -103,6 +112,7 @@ def st_senior_thesis():
     st.subheader('Formalizing Search and Expanding ML Framework for Senior Thesis')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
+            Coming soon.
 
             __Tools used (*New):__
             - Python (NumPy, Matplotlib, XGBoost)

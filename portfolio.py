@@ -2,6 +2,7 @@ import streamlit as st
 from tabs import resume
 from tabs import ldmx
 from tabs import bird_class
+from tabs import sss
 
 def main():
 
@@ -23,10 +24,11 @@ def main():
             unsafe_allow_html=True
         )
 
-        resume_tab, ldmx_tab, bird_class_tab = st.tabs([
+        resume_tab, ldmx_tab, bird_class_tab, sss_tab = st.tabs([
             ':page_facing_up: Resume',
             ':dark_sunglasses: LDMX',
-            ':penguin: Bird Class'
+            ':penguin: Bird Class',
+            ':headphones: Special-Song-Search'
         ])
 
         with resume_tab:
@@ -48,6 +50,9 @@ def main():
 
         with bird_class_tab:
             bird_class.st_all()
+
+        with sss_tab:
+            sss.st_all()
 
         st.markdown(
             '[:arrow_up: Go to top](#juan-manuel-lazaro-ruiz)',
