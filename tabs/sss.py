@@ -15,9 +15,9 @@ def st_readme_introduction():
             Search provides several options and relies on you to specify what
             is most important to you. This means:
             1. It doesn't have to store your data.
-            2. It can quickly alter its recomendations.
+            2. It can quickly alter its recommendations.
             3. If you like the results, it won't keep re-recommending the same
-               small set of songs as some other recomendation engines do.
+               small set of songs as some other recommendation engines do.
         """)
         st.image('https://raw.githubusercontent.com/jmlazaro25/special-song-search/main/images/display_example.png')
 
@@ -54,7 +54,7 @@ def st_readme_data_preview():
         st.markdown(
             """
             This heatmap shows the count of recordings with a tag-pair as a
-            fraction of the count of the tag on the diagnol for the tag-pair's
+            fraction of the count of the tag on the diagonal for the tag-pair's
             row. The bright left-most column indicates that recordings tagged
             with any other variation of rock are also likely tagged with rock
             itself. For anyone who likes other forms of rock, but not
@@ -78,7 +78,7 @@ def st_readme():
 def st_exec_summary():
     st.markdown(
         f"""
-        Special Song Search is a song recomendation project I made as I was
+        Special Song Search is a song recommendation project I made as I was
         unsatisfied with commercial song recommendation engines. It is
         primarily for individuals who would like fine grained control over
         their recommendations and/or don't want to their data collected and
