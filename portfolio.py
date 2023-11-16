@@ -1,4 +1,5 @@
 import streamlit as st
+from tabs import home
 from tabs import resume
 from tabs import ldmx
 from tabs import bird_class
@@ -6,6 +7,7 @@ from tabs import sss
 
 
 TAB_LABEL_MODULES = {
+    ':house_with_garden: Home': home,
     ':page_facing_up: Resume': resume,
     ':dark_sunglasses: LDMX': ldmx,
     ':penguin: Bird Class': bird_class,
