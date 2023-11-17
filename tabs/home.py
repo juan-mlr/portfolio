@@ -48,7 +48,7 @@ def st_bio():
         data science and machine learning engineering with programs from the
         Pragmatic Institute (The Data Incubator) and the University of
         California, San Diego (UCSD) Extended Studies. I look forward to a long
-        career innovating and a positive impact on the world.
+        career innovating and making a positive impact on the world.
     """)
 
 def st_interests():
