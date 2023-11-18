@@ -2,9 +2,10 @@ import streamlit as st
 import os
 
 
+ASSETS_DIR = os.path.join(os.getcwd(), 'assets')
 THESIS_NAME = 'Exploring Visible Decay Scenarios In The Light Dark Matter eXperiment'
 THESIS_FILE_NAME = THESIS_NAME.lower().replace(' ', '_') + '.pdf'
-THESIS_FILE_PATH = os.path.join(os.getcwd(), 'assets', THESIS_FILE_NAME)
+THESIS_FILE_PATH = os.path.join(ASSETS_DIR, THESIS_FILE_NAME)
 LDMX_HOME_URL = 'https://confluence.slac.stanford.edu/display/MME/Light+Dark+Matter+Experiment'
 LDMX_COLLAB_IMAGE_URL = 'https://confluence.slac.stanford.edu/download/attachments/210534721/LDMX_institution_logos_aug2022.png?version=1&modificationDate=1661352351000&api=v2'
 
@@ -70,9 +71,95 @@ def st_experiment_background():
             does not represent LDMX. For official documents, see
             [here]({LDMX_HOME_URL}).
 
-            ...
+            The Standard Model of particle physics is one of the most complete
+            and succesful models we have to describe our universe on the
+            smallest distance scales, but it is incomplete. Likewise, general
+            relativity has been extremely succesful from planetary to
+            cosmological scales, but is also an incomplete theory. However,
+            general relativity may be providing one of the best clues for a
+            missing piece in the Standard Model. There are a few discrepancies
+            between the behavior of matter in some galaxies and the predictions
+            general relativity makes based on the observable matter in those
+            galaxies. Below is an example of one such case: the Bullet Cluster
+            which suggests there is a significant amount of matter which we can
+            only detect through its gravitational effects.
             """,
             unsafe_allow_html=True
+        )
+        st.image(
+            'https://chandra.harvard.edu/photo/2006/1e0657/1e0657_420.jpg',
+            caption="""
+                An X-ray map (pink) showing the heated matter as a result of
+                the colliding clusters that now make up galaxy cluster
+                1E0657-56 and gravitational lensing map (blue) indicating the
+                distribution of mass superimposed on a visible light image of
+                the same part of the sky. This suggests most matter, which is
+                only detectable through gravatational lensing, had little or no
+                interaction in the collision. Source:
+                https://chandra.harvard.edu/photo/2006/1e0657/index.html
+            """,
+            width=720
+        )
+        st.markdown("""
+            Through cosmological observations and modeling, it is estimated
+            that this matter that interacts very weakly, if at all, with the
+            electromagnetic force, and which we have come to call dark matter,
+            makes up about 5 times more of the energy density or "stuff" in
+            the universe than does familiar Standard Model matter. Discovering
+            what dark matter is exactly, would therefore be a huge leap forward
+            in our understanding of the universe.
+
+            There have been several different models of different classes
+            proposed for the form dark matter may take. LDMX will be searching
+            for a dark matter in a lower mass range than most past experiments,
+            hence the name "light dark matter." It will do this by firing
+            electrons at a tungsten target and waiting for the electron to
+            radiate a dark matter particle, or more precisely, a new force
+            carrier we call a dark photon or $A'$. We will know when this
+            happens because the $A'$ should then travel through the detector
+            without interacting which we would see that as missing energy and
+            momentum.
+
+            In most cases, the electron will produce particles known to the
+            Standard Model. Electromagnetically charged particles' energy is
+            captured by the electromagnetic calorimeter (ECal) and
+            electromagnetically neutral particles' energy is captured by the
+            hadron calorimeter (HCal). If these background events can be
+            seperated from the events of interest, we can use information from
+            the remaining events to reconstruct properties of the new particle
+            such its mass.
+        """)
+        ldmx_out, ldmx_in = st.columns([0.84, 1])
+        with ldmx_out:
+            st.image(
+                os.path.join(ASSETS_DIR, 'ldmx_out.jpg'),
+                """
+                A rendering of the complete LDMX detector. Source:
+                https://doi.org/10.1007/JHEP04(2020)003
+                """
+            )
+        with ldmx_in:
+            st.image(
+                os.path.join(ASSETS_DIR, 'ldmx_in.jpg'),
+                """
+                A vertical cross section of LDMX showing its subdetectors. Note
+                that the ECal will be rotated 90° from what is shown to gain
+                some acceptance of recoil electrons, which will be deflected
+                right by the downward magnetic field. Source:
+                https://doi.org/10.1007/JHEP04(2020)003
+                """
+            )
+        st.image(
+            os.path.join(ASSETS_DIR, 'event_cartoons.jpg'),
+            """
+            Cartoons of invisible (Left) and visible (Right) DM signatures.
+            For our purposes, the LLP (long lived particle) is an A′. Future
+            analyses may consider ALPs. The μ suggests a beam option for other
+            potential similar experiments, motivated by the possibility of the
+            LLP having a stronger coupling to heavier leptons. Source:
+            Dark Matter, Millicharges, Axion and Scalar Particles, Gauge Bosons
+            and Other New Physics with LDMX, Phys. Rev.D 99 (2019) 075001
+            """
         )
 
 def st_particle_tracking():
@@ -133,7 +220,7 @@ def st_senior_thesis():
             photons and axion-like particles, as well as to improve invisible signal efficiency.
 
             This document outlines the first steps towards these goals. I begin with introductions
-            to the standard model, dark matter, and LDMX. I cover the generation of the new visible
+            to the Standard Model, dark matter, and LDMX. I cover the generation of the new visible
             signal samples needed for this study, followed by descriptions of the extended BDTs designed
             to separate said signal from its backgrounds. An analysis of these BDTs is carried out for
             invisible dark photon signal as well. Results are promising for invisible signal, as one new
