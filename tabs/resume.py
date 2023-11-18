@@ -13,7 +13,7 @@ def st_left_right_align(left_text: str, right_text: str):
 def st_technical_skills():
     st.subheader('Technical Skills')
     with st.expander('Show/Hide', expanded=True):
-        st.subheader('Programming and Software:')
+        st.subheader('Programming and Software', divider='gray')
         st.markdown("""
             - __Python__
                 - __Numerical__: NumPy, SciPy, Statsmodels
@@ -32,7 +32,7 @@ def st_technical_skills():
                 - LaTeX ($\LaTeX$)
                 - Microsoft Excel, Microsoft PowerPoint
             """)
-        st.subheader('Data Science and Machine Learning')
+        st.subheader('Data Science and Machine Learning', divider='gray')
         st.markdown("""
             - __Extract, transform, and load (ETL)__
                 - __Data Collection__, __Data Wrangling__, __Data Cleaning__
@@ -43,7 +43,7 @@ def st_technical_skills():
             - __Data Visualization__
             - __Model Deployment__
             """)
-        st.subheader('Industry Knowledge')
+        st.subheader('Industry Knowledge', divider='gray')
         st.markdown("""
             - __Research__
             - __Problem Solving__
@@ -57,7 +57,7 @@ def st_technical_skills():
 def st_education():
     st.subheader('Education')
     with st.expander('Show/Hide', expanded=True):
-        st.markdown('#### Degrees')
+        st.subheader('Degrees', divider='gray')
         st_left_right_align(
             'Coursework toward Ph.D. in Physics | Massachusetts Institute of Technology (MIT)',
             'Feb 2022 - Nov 2022'
@@ -72,7 +72,7 @@ def st_education():
             - UCSB McNair Fellowship
             - UCSB Promise Scholar
         """)
-        st.markdown('#### Certifications')
+        st.subheader('Certifications', divider='gray')
         st_left_right_align(
             'The Data Incubator'
             ' | Fellowship Program'
