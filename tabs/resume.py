@@ -59,7 +59,7 @@ def st_education():
     with st.expander('Show/Hide', expanded=True):
         st.subheader('Degrees', divider='gray')
         st_left_right_align(
-            'Coursework toward Ph.D. in Physics | Massachusetts Institute of Technology (MIT)',
+            'Ph.D. in Physics (Incomplete) | Massachusetts Institute of Technology (MIT)',
             'Feb 2022 - Nov 2022'
         )
         st_left_right_align(

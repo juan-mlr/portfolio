@@ -22,8 +22,15 @@ def main():
         layout='wide',
     )
 
-    # layout TBD
-    left_col, main_col, right_col = st.columns([0.1, 100, 0.1])
+    st.markdown("""
+        <style>
+            .block-container {padding-top: 0 !important;}
+        </style>""",
+        unsafe_allow_html=True,
+    )
+
+    # layout not final
+    left_col, main_col, right_col = st.columns([20, 100, 20])
 
     with main_col:
         st.title('Juan Manuel Lazaro Ruiz')

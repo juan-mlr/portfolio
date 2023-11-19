@@ -1,5 +1,8 @@
 import streamlit as st
 import os
+from PIL import Image
+
+from utils.styling import image_column_widths
 
 
 ASSETS_DIR = os.path.join(os.getcwd(), 'assets')
@@ -97,8 +100,7 @@ def st_experiment_background():
                 only detectable through gravatational lensing, had little or no
                 interaction in the collision. Source:
                 https://chandra.harvard.edu/photo/2006/1e0657/index.html
-            """,
-            width=720
+            """
         )
         st.markdown("""
             Through cosmological observations and modeling, it is estimated
@@ -128,20 +130,42 @@ def st_experiment_background():
             seperated from the events of interest, we can use information from
             the remaining events to reconstruct properties of the new particle
             such its mass.
+
+            Before the development of a particle tracking algorithm in the
+            ECal, the seperation process required the following of events:
+            1. ECal total energy $\\lt$ 1.5 GeV (Trigger)
+            2. Single track in recoil tracker with $p \\lt$ 1.2 GeV
+            3. ECal BDT (Boosted Decision Tree) discriminator value $\\gt 0.99$
+            4. HCal PE (photoelectrons) $\\lt$ 5
+
+            The ECal BDT, and later the particle tracking algorithm, make use
+            of the projected paths of the recoil electron and photon, with the
+            assumption that the electron radiated a photon in the target.
+            Around each of these paths, we also have radii of containment which
+            represent the distance from the path at each layer of the ECal
+            within which 68% of secondary (showered) particles are found.
         """)
-        ldmx_out, ldmx_in = st.columns([0.84, 1])
+        ldmx_out_image = Image.open(os.path.join(ASSETS_DIR, 'ldmx_out.jpg'))
+        ldmx_in_image = Image.open(os.path.join(ASSETS_DIR, 'ldmx_in.jpg'))
+        widths = image_column_widths(
+            [ldmx_out_image.size, ldmx_in_image.size],
+            500
+        )
+        ldmx_out, ldmx_in = st.columns(widths)
         with ldmx_out:
             st.image(
-                os.path.join(ASSETS_DIR, 'ldmx_out.jpg'),
-                """
+                ldmx_out_image,
+                use_column_width=True,
+                caption="""
                 A rendering of the complete LDMX detector. Source:
                 https://doi.org/10.1007/JHEP04(2020)003
                 """
             )
         with ldmx_in:
             st.image(
-                os.path.join(ASSETS_DIR, 'ldmx_in.jpg'),
-                """
+                ldmx_in_image,
+                use_column_width=True,
+                caption="""
                 A vertical cross section of LDMX showing its subdetectors. Note
                 that the ECal will be rotated 90° from what is shown to gain
                 some acceptance of recoil electrons, which will be deflected
@@ -166,10 +190,53 @@ def st_particle_tracking():
     st.subheader('Particle Tracking')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
-            My first foray into LDMX analysis was developing a particle
-            tracking algorithm. I did this in partnership with a graduate
-            student at the time...
+            My first foray into LDMX analysis was a collaboration with a
+            UCSB graduate student in which we developed a minimum ionizing
+            particle (MIP) tracking algorithm. This was necessitated by
+            background events where the photon would produce a single neutral,
+            possibly soft (low-momentum), hadron. In these cases, there may be
+            very few hits around the projected photon path which would be very
+            difficult for the ECal BDT to distinguish from a signal ($A'$)
+            event. Note that although the ECal will use sophisticated
+            technology, it is not immune to noise. Thus, we cannot reject all
+            events with any hits near the photon path without losing a
+            significant fraction of signal events.
 
+            ...
+        """)
+        st.image(
+            os.path.join(ASSETS_DIR, 'official_mip_tracking.png'),
+            """
+            Left: visualization of a simulated PN event that survives both the
+            ECal BDT and HCal activity vetoes, but is rejected by the ECal
+            tracking algorithm. Hits are color-coded according to whether they
+            are inside or outside the electron and photon containment radii,
+            and the black line indicates the reconstructed track. Right:
+            number of ECal tracks detected per event in a sample of 10,000
+            events each for signal and PN background after ECal vetoes;
+            normalized to unit area. Source:
+            A high efficiency photon veto for the Light Dark Matter eXperiment
+            Akesson, T., Blinov, N., Lazaro, J., et al. (2020)
+            | Journal of High Energy Physics, 3, 1-29
+            """
+        )
+        st.markdown("""
+        """)
+        st.image(
+            os.path.join(ASSETS_DIR, 'official_cut_table.jpg'),
+            """
+            The estimated levels of photo-nuclear and muon conversion
+            backgrounds after applying the successive background rejection cuts.
+            Here, the total events simulated corresponds to the total electrons
+            fired on target in the simulation. The biasing factor passed to the
+            Geant4 occurrence biasing toolkit is used to scale the total events
+            simulated to the electron on target (EoT) equivalent. Source:
+            A high efficiency photon veto for the Light Dark Matter eXperiment
+            Akesson, T., Blinov, N., Lazaro, J., et al. (2020)
+            | Journal of High Energy Physics, 3, 1-29
+            """
+        )
+        st.markdown("""
             __Tools used:__
             - Python (NumPy, Matplotlib)
             - IBM Spectrum LSF

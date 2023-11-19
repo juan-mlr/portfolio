@@ -44,7 +44,7 @@ def st_deployment():
 def st_exec_summary():
     st.markdown(
         """
-        This project is an expercise in machine learning (ML) development
+        This project is an exercise in machine learning (ML) development
         with limited computing resources and ML operations (MLOps).
         Below are summaries of this project's components.\n
         [E-mail](mailto:juan.m.lazaro.ruiz@gmail.com) to schedule a live demo.

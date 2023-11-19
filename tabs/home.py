@@ -1,5 +1,8 @@
 import streamlit as st
 
+from utils.image import image_from_url
+from utils.styling import image_column_widths
+
 
 def st_about():
     st.subheader('About', divider=True)
@@ -12,15 +15,16 @@ def st_about():
 
 def st_bio():
     st.subheader('Bio', divider=True)
-    physics_col, ucsb_col, mit_col, data_ml_col = st.columns(4)
-    with physics_col:
-        st.image('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/CDF_Top_Event.jpg/1200px-CDF_Top_Event.jpg')
-    with ucsb_col:
-        st.image('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/UCSB_Henley_Gate.jpg/1920px-UCSB_Henley_Gate.jpg')
-    with mit_col:
-        st.image('https://iblnews.org/wp-content/uploads/2021/06/mit10yearsasnumberone.jpg')
-    with data_ml_col:
-        st.image('https://www.frontiersin.org/files/Articles/459874/fneur-10-00869-HTML/image_m/fneur-10-00869-g001.jpg')
+    physics_image = image_from_url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/CDF_Top_Event.jpg/1200px-CDF_Top_Event.jpg')
+    ucsb_image = image_from_url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/UCSB_Henley_Gate.jpg/1920px-UCSB_Henley_Gate.jpg')
+    mit_image = image_from_url('https://iblnews.org/wp-content/uploads/2021/06/mit10yearsasnumberone.jpg')
+    data_ml_image = image_from_url('https://www.frontiersin.org/files/Articles/459874/fneur-10-00869-HTML/image_m/fneur-10-00869-g001.jpg')
+    images = [physics_image, ucsb_image, mit_image, data_ml_image]
+    widths = image_column_widths([im.size for im in images], 200)
+    cols = st.columns(widths)
+    for col, image in zip(cols, images):
+        with col:
+            st.image(image)
     st.markdown("""
         When I was 12 years old, I was introduced to high energy physics. I was
         fascinated by the strange results of quantum mechanics, special
