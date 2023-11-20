@@ -5,7 +5,7 @@ from PIL import Image
 from utils.styling import image_column_widths
 
 
-ASSETS_DIR = os.path.join(os.getcwd(), 'assets')
+ASSETS_DIR = os.path.join(os.getcwd(), 'assets', 'ldmx')
 THESIS_NAME = 'Exploring Visible Decay Scenarios In The Light Dark Matter eXperiment'
 THESIS_FILE_NAME = THESIS_NAME.lower().replace(' ', '_') + '.pdf'
 THESIS_FILE_PATH = os.path.join(ASSETS_DIR, THESIS_FILE_NAME)
@@ -83,15 +83,16 @@ def st_experiment_background():
             missing piece in the Standard Model. There are a few discrepancies
             between the behavior of matter in some galaxies and the predictions
             general relativity makes based on the observable matter in those
-            galaxies. Below is an example of one such case: the Bullet Cluster
-            which suggests there is a significant amount of matter which we can
-            only detect through its gravitational effects.
+            galaxies. Figure 1 shows an example of one such case: the Bullet
+            Cluster which suggests there is a significant amount of matter
+            which we can only detect through its gravitational effects.
             """,
             unsafe_allow_html=True
         )
         st.image(
             'https://chandra.harvard.edu/photo/2006/1e0657/1e0657_420.jpg',
             caption="""
+                Figure 1.
                 An X-ray map (pink) showing the heated matter as a result of
                 the colliding clusters that now make up galaxy cluster
                 1E0657-56 and gravitational lensing map (blue) indicating the
@@ -139,11 +140,12 @@ def st_experiment_background():
             4. HCal PE (photoelectrons) $\\lt$ 5
 
             The ECal BDT, and later the particle tracking algorithm, make use
-            of the projected paths of the recoil electron and photon, with the
-            assumption that the electron radiated a photon in the target.
-            Around each of these paths, we also have radii of containment which
-            represent the distance from the path at each layer of the ECal
-            within which 68% of secondary (showered) particles are found.
+            of the projected trajectories of the recoil electron and photon,
+            with the assumption that the electron radiated a photon in the
+            target. Around each of these trajectories, we also have radii of
+            containment which represent the distance from the trajectory at
+            each layer of the ECal within which 68% of secondary (showered)
+            particles are found.
         """)
         ldmx_out_image = Image.open(os.path.join(ASSETS_DIR, 'ldmx_out.jpg'))
         ldmx_in_image = Image.open(os.path.join(ASSETS_DIR, 'ldmx_in.jpg'))
@@ -157,6 +159,7 @@ def st_experiment_background():
                 ldmx_out_image,
                 use_column_width=True,
                 caption="""
+                Figure 2.
                 A rendering of the complete LDMX detector. Source:
                 https://doi.org/10.1007/JHEP04(2020)003
                 """
@@ -166,16 +169,18 @@ def st_experiment_background():
                 ldmx_in_image,
                 use_column_width=True,
                 caption="""
-                A vertical cross section of LDMX showing its subdetectors. Note
-                that the ECal will be rotated 90° from what is shown to gain
-                some acceptance of recoil electrons, which will be deflected
-                right by the downward magnetic field. Source:
+                Figure 3.
+                A vertical cross section of LDMX showing its
+                subdetectors. Note that the ECal will be rotated 90° from what
+                is shown to gain some acceptance of recoil electrons, which
+                will be deflected right by the downward magnetic field. Source:
                 https://doi.org/10.1007/JHEP04(2020)003
                 """
             )
         st.image(
             os.path.join(ASSETS_DIR, 'event_cartoons.jpg'),
             """
+            Figure 4.
             Cartoons of invisible (Left) and visible (Right) DM signatures.
             For our purposes, the LLP (long lived particle) is an A′. Future
             analyses may consider ALPs. The μ suggests a beam option for other
@@ -194,19 +199,55 @@ def st_particle_tracking():
             UCSB graduate student in which we developed a minimum ionizing
             particle (MIP) tracking algorithm. This was necessitated by
             background events where the photon would produce a single neutral,
-            possibly soft (low-momentum), hadron. In these cases, there may be
-            very few hits around the projected photon path which would be very
-            difficult for the ECal BDT to distinguish from a signal ($A'$)
+            possibly soft (low-momentum), hadron. These are known as
+            photo-nuclear (PN) events, and in these cases, there may be very
+            few hits around the projected photon trajectory which would be make
+            it difficult for the ECal BDT to distinguish from a signal ($A'$)
             event. Note that although the ECal will use sophisticated
             technology, it is not immune to noise. Thus, we cannot reject all
-            events with any hits near the photon path without losing a
-            significant fraction of signal events.
+            events with a few hits near the photon trajectory without losing a
+            significant fraction of signal events. However if there is a
+            series of hits that appear to form a track, this could be used to
+            reject background events without losing too much signal as noise
+            hits will not form false tracks frequently.
 
-            ...
+            Until we began working on MIP tracking most LDMX analyses had been
+            done without visual feedback from individual events. This was not a
+            significant impediment to development as the ECal BDT made use of
+            aggregate quanities. In contrast, MIP tracking would require
+            absolute and relative position information for individual hits.
+            Therefore, my first contribution was a set of scripts that
+            extracted only the necessary information from simulation ROOT files
+            into text files and used those files to make 3D plots of hits in
+            the ECal. I found this to be faster than digging through the ROOT
+            files every time we wanted to plot an event. Figure 5 (Left) shows
+            an example plot.
+
+            After many iterations, we settled on an algorithm with two stages.
+            The first stage looked for tracks perpendicular to the ECal face
+            and allowed a gap of one layer between hits. I focused on the
+            second stage which took combinations of three hits and used linear
+            regression to determine if they formed a track. This allowed the
+            identification of tracks at any angle and with larger gaps between
+            hits. Further, the track was then projected and hits close enough
+            to that projection would be added to the track. At both stages, the
+            track is only accepted if it is close enough to the photon
+            trajectory and far enough from the electron trajectory. Thus far,
+            the length and number of tracks (beyond 1) do not impact the
+            rejection of events, but that may change.
+
+            The results of the MIP tracking algorithm are shown in Figure 5 and
+            Table 1. In particular, Table 1 shows that requiring that there are
+            no ECal MIP tracks rejects the final 10 events that have passed all
+            other cuts from an initial $2.1 \\times 10^{14}$ electrons on
+            target equivalent sample of ECal PN events. Depending on the mass
+            of the $A'$, 30% - 50% of signal events survive the same rejection
+            process.
         """)
         st.image(
             os.path.join(ASSETS_DIR, 'official_mip_tracking.png'),
             """
+            Figure 5.
             Left: visualization of a simulated PN event that survives both the
             ECal BDT and HCal activity vetoes, but is rejected by the ECal
             tracking algorithm. Hits are color-coded according to whether they
@@ -216,7 +257,7 @@ def st_particle_tracking():
             events each for signal and PN background after ECal vetoes;
             normalized to unit area. Source:
             A high efficiency photon veto for the Light Dark Matter eXperiment
-            Akesson, T., Blinov, N., Lazaro, J., et al. (2020)
+            | Akesson, T., Blinov, N., Lazaro, J., et al. (2020)
             | Journal of High Energy Physics, 3, 1-29
             """
         )
@@ -225,6 +266,7 @@ def st_particle_tracking():
         st.image(
             os.path.join(ASSETS_DIR, 'official_cut_table.jpg'),
             """
+            Table 1.
             The estimated levels of photo-nuclear and muon conversion
             backgrounds after applying the successive background rejection cuts.
             Here, the total events simulated corresponds to the total electrons
@@ -232,7 +274,7 @@ def st_particle_tracking():
             Geant4 occurrence biasing toolkit is used to scale the total events
             simulated to the electron on target (EoT) equivalent. Source:
             A high efficiency photon veto for the Light Dark Matter eXperiment
-            Akesson, T., Blinov, N., Lazaro, J., et al. (2020)
+            | Akesson, T., Blinov, N., Lazaro, J., et al. (2020)
             | Journal of High Energy Physics, 3, 1-29
             """
         )
@@ -249,8 +291,28 @@ def st_vd_at_caltech():
     st.subheader('Visible Decay Search with ML Beginnings at Caltech')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
+            For the summer of 2020, I was awarded a WAVE Fellowship to conduct
+            research at Caltech. Fortunately, since Caltech is part of the LDMX
+            collaboration, I could continue working on LDMX as I had at UCSB.
+            Although, with the success of MIP tracking in the primary search
+            for invisible $A'$ signal, I decided to move on and begin
+            developing processes for another model of dark matter where the
+            $A'$ could decay to an electron-positron pair.
+
             This was made more difficult due to the need to avoid decay
-            length bias...
+            length bias. Decay length is a property of nonstable particles
+            which describes the distance they tend to travel before decaying to
+            other particles and does not refer the the distance traveled by an
+            instance of that particle. Just as LDMX purposfully avoided using
+            momentum information in the rejection process so that it may
+            reconstruct the mass of the invisible $A'$, I avoided using
+            momentum and decay length information in the rejection process I
+            began developing for visibly decaying $A'$ signal. This would allow
+            the reconstruction of the mass and the added coupling factor, not
+            present in the previous model, to electrons.
+
+            **creation of HCal BDT for EM/hadronic shower seperation with toy
+            sims**
 
             __Tools used (*New):__
             - Python (NumPy, Matplotlib, __XGBoost*__)
