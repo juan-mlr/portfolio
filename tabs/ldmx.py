@@ -261,8 +261,6 @@ def st_particle_tracking():
             | Journal of High Energy Physics, 3, 1-29
             """
         )
-        st.markdown("""
-        """)
         st.image(
             os.path.join(ASSETS_DIR, 'official_cut_table.jpg'),
             """
@@ -295,24 +293,76 @@ def st_vd_at_caltech():
             research at Caltech. Fortunately, since Caltech is part of the LDMX
             collaboration, I could continue working on LDMX as I had at UCSB.
             Although, with the success of MIP tracking in the primary search
-            for invisible $A'$ signal, I decided to move on and begin
-            developing processes for another model of dark matter where the
-            $A'$ could decay to an electron-positron pair.
+            for invisible $A'$ dark matter, I decided to move on and begin
+            developing processes for visible dark matter signals. Two models we
+            were interested in were axion-like particles (ALPs) and $A'$s with
+            a coupling to electrons an positrons.
 
-            This was made more difficult due to the need to avoid decay
-            length bias. Decay length is a property of nonstable particles
-            which describes the distance they tend to travel before decaying to
-            other particles and does not refer the the distance traveled by an
-            instance of that particle. Just as LDMX purposfully avoided using
-            momentum information in the rejection process so that it may
-            reconstruct the mass of the invisible $A'$, I avoided using
-            momentum and decay length information in the rejection process I
-            began developing for visibly decaying $A'$ signal. This would allow
-            the reconstruction of the mass and the added coupling factor, not
-            present in the previous model, to electrons.
+            The signals from an ALP to photon oscillation and an $A'$ to
+            electron-positron decay would be different but would both include
+            electromagnetic showers and have hadronic backgrounds. Given the
+            limited time frame, I chose to limit my aim to create a BDT which
+            could seperate electromagnetic and hadronic showers in the HCal
+            without using features with absolte $z$-position information to
+            avoid decay length bias. Decay length is a property of nonstable
+            particles which describes the distance they tend to travel before
+            decaying or oscillating to other particles and does not refer the
+            distance traveled by an instance of that particle. Just as LDMX
+            purposfully avoided using momentum information in the rejection
+            process so that it may reconstruct the mass of the invisible $A'$,
+            I avoided using momentum and decay length information in the
+            rejection process I began developing for visibly decaying signal.
+            This would allow the reconstruction of the mass and an added
+            coupling factor not present in the previous model.
 
-            **creation of HCal BDT for EM/hadronic shower seperation with toy
-            sims**
+            Since I was only interested in separating electromagnetic showers
+            and hadronic showers in the HCal, I made toy simulations with
+            Geant4 where ALP events were modeled as a photon that begins at the
+            point where the ALP would undergo a conversation to said photon.
+            Likewise, the background occurs when a neutron travels through the
+            ECal without showering so I simulated neutrons beginning in the
+            ECal region but only the HCal is actually present in the
+            simulation.
+
+            Following the example of the ECal BDT's features, I engineered
+            analogous features for the HCal. For ECal features that used
+            absolute $z$-position, I made the analogous HCal features use
+            relative $z$-position. Plotting these features as shown in
+            Figure 6 helped to validate the simulations, modify the features
+            as needed to provide additional discriminating power, and
+            interpret the BDT's results.
+
+            Given the success of the ECal BDT, I developed the HCal BDT with
+            the same BDT implementation, XGBoost. Figure 7 shows the final
+            discriminating power I achieved during the fellowship after
+            several rounds of feature eningeering followed by
+            recursive feature elimination.
+        """)
+        st.image(
+            os.path.join(ASSETS_DIR, 'caltech_hcal_features.jpg'),
+            """
+            Figure 6.
+            Distributions of features with the highest discriminating power.
+            Left: energy-weighted standard deviation of all hit Z positions.
+            Right: number of hits. These two features capture describe the
+            shape and size of the particle shower, which are different for
+            electromagnetic and hadron initiated showers, without making use of
+            its absolute $z$-position.
+            """
+        )
+        st.image(
+            os.path.join(ASSETS_DIR, 'caltech_hcal_results.jpg'),
+            """
+            Figure 7.
+            Left: BDT discriminator value distributions for neutron-initiated
+            shower samples (background) and photon-initiated shower samples
+            (signal) which should have low and high discriminator values,
+            respectively. Right: Signal efficiencies grouped by energy as a
+            function of background efficiencies. The pink star markers
+            represent an example cut at a discriminator value of 0.9.
+            """
+        )
+        st.markdown("""
 
             __Tools used (*New):__
             - Python (NumPy, Matplotlib, __XGBoost*__)
@@ -336,7 +386,7 @@ def st_senior_thesis():
             - Git/Github
             - Bash
             - ROOT Data Analysis Framework
-            - Geant4, __MadGraph5*__
+            - Geant4
             - $\\LaTeX$
             - __Docker*__
 
