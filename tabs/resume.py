@@ -74,14 +74,18 @@ def st_education():
         """)
         st.subheader('Certifications', divider='gray')
         st_left_right_align(
-            'The Data Incubator'
-            ' | Fellowship Program'
-            ' | <a href="https://www.credly.com/badges/fb690af3-ce80-4a53-b6d6-7cb18e93fb8e/linked_in_profile" target="_blank">Data Scientist Certification</a>',
+            'Machine Learning Certification'
+            ' | UC San Diego ML Engineering & AI Bootcamp',
+            'Nov 2023'
+        )
+        st_left_right_align(
+            '<a href="https://www.credly.com/badges/fb690af3-ce80-4a53-b6d6-7cb18e93fb8e/linked_in_profile" target="_blank">Data Scientist Certification</a>'
+            ' | The Data Incubator - Fellowship Program',
             'Sep 2023'
         )
         st_left_right_align(
-            'DataCamp'
-            ' | <a href="https://www.datacamp.com/certificate/DS0023881595718" target="_blank">Data Science Professional Certification</a>'
+            '<a href="https://www.datacamp.com/certificate/DS0023881595718" target="_blank">Data Science Professional Certification</a>'
+            ' | DataCamp'
             ' | Valid through Mar 2025',
             'Mar 2023'
         )
