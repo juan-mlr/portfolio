@@ -41,12 +41,12 @@ def st_exec_summary():
         signal (caused by undiscovered dark matter) events.
 
         First, I helped to develop a particle tracking algorithm that rejected
-        the last 10 background events in a set of simulations equivalent to
-        $2 \\times 10^{{14}}$ electrons on target. Provided dark matter exists
-        and interacts with Standard Model particles according to the operating
-        model, this was evidence that LDMX's physical design and the
-        accompanying series of analysis methods were capable of formally
-        discovering dark matter.
+        the last 10 background events in a set of $4.7 \\times 10^{{11}}$
+        simulations (equivalent to $2 \\times 10^{{14}}$ electrons on target).
+        Provided dark matter exists and interacts with Standard Model particles
+        according to the operating model, this was evidence that LDMX's
+        physical design and the accompanying series of analysis methods were
+        capable of formally discovering dark matter.
 
         As a WAVE Fellow at the California Institute of Technology (Caltech),
         I began exploring how LDMX's machine learning model for an invisible
@@ -347,7 +347,7 @@ def st_vd_at_caltech():
             Right: number of hits. These two features capture describe the
             shape and size of the particle shower, which are different for
             electromagnetic and hadron initiated showers, without making use of
-            its absolute $z$-position.
+            its absolute z-position.
             """
         )
         st.image(
@@ -378,7 +378,22 @@ def st_senior_thesis():
     st.subheader('Formalizing Search and Expanding ML Framework for Senior Thesis')
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
-            Coming soon.
+            I chose to do a senior thesis to fulfill part of my B.S.'s
+            requirments. The 41 page document is available for download at the
+            bottom of this section, and I would be much obliged if you took a
+            moment to peruse it.
+
+            I first completely overhauled the model building code we had around
+            XGBoost to make it easier to build and keep track of features
+            during feature engineering and recursive feature selection.
+            This proved to be an extremely worthy endevor as the time it saved
+            offset the extra time it took to generate new phenomenologically
+            accurate simulations.
+
+            Through discussions with the collaboration's theorists, I decided
+            to foramlize the visible decay search with the
+            $A' \\rightarrow e^{+}e^{-}$ model. This required me to update the
+            LDMX-Software docker image to work with ...
 
             __Tools used (*New):__
             - Python (NumPy, Matplotlib, XGBoost)
