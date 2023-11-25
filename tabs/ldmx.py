@@ -2,7 +2,7 @@ import streamlit as st
 import os
 from PIL import Image
 
-from utils.styling import image_column_widths
+from utils.styling import st_image_row
 
 
 ASSETS_DIR = os.path.join(os.getcwd(), 'assets', 'ldmx')
@@ -134,7 +134,7 @@ def st_experiment_background():
 
             Before the development of a particle tracking algorithm in the
             ECal, the seperation process required the following of events:
-            1. ECal total energy $\\lt$ 1.5 GeV (Trigger)
+            1. ECal total energy (first 20 layers) $\\lt$ 1.5 GeV (Trigger)
             2. Single track in recoil tracker with $p \\lt$ 1.2 GeV
             3. ECal BDT (Boosted Decision Tree) discriminator value $\\gt 0.99$
             4. HCal PE (photoelectrons) $\\lt$ 5
@@ -148,35 +148,25 @@ def st_experiment_background():
             particles are found.
         """)
         ldmx_out_image = Image.open(os.path.join(ASSETS_DIR, 'ldmx_out.jpg'))
+        ldmx_out_caption="""
+            Figure 2.
+            A rendering of the complete LDMX detector. Source:
+            https://doi.org/10.1007/JHEP04(2020)003
+        """
         ldmx_in_image = Image.open(os.path.join(ASSETS_DIR, 'ldmx_in.jpg'))
-        widths = image_column_widths(
-            [ldmx_out_image.size, ldmx_in_image.size],
-            500
+        ldmx_in_caption="""
+            Figure 3.
+            A vertical cross section of LDMX showing its
+            subdetectors. Note that the ECal will be rotated 90° from what
+            is shown to gain some acceptance of recoil electrons, which
+            will be deflected right by the downward magnetic field. Source:
+            https://doi.org/10.1007/JHEP04(2020)003
+        """
+        st_image_row(
+            [ldmx_out_image, ldmx_in_image],
+            [ldmx_out_caption, ldmx_in_caption],
+            800
         )
-        ldmx_out, ldmx_in = st.columns(widths)
-        with ldmx_out:
-            st.image(
-                ldmx_out_image,
-                use_column_width=True,
-                caption="""
-                Figure 2.
-                A rendering of the complete LDMX detector. Source:
-                https://doi.org/10.1007/JHEP04(2020)003
-                """
-            )
-        with ldmx_in:
-            st.image(
-                ldmx_in_image,
-                use_column_width=True,
-                caption="""
-                Figure 3.
-                A vertical cross section of LDMX showing its
-                subdetectors. Note that the ECal will be rotated 90° from what
-                is shown to gain some acceptance of recoil electrons, which
-                will be deflected right by the downward magnetic field. Source:
-                https://doi.org/10.1007/JHEP04(2020)003
-                """
-            )
         st.image(
             os.path.join(ASSETS_DIR, 'event_cartoons.jpg'),
             """
@@ -343,8 +333,8 @@ def st_vd_at_caltech():
             """
             Figure 6.
             Distributions of features with the highest discriminating power.
-            Left: energy-weighted standard deviation of all hit Z positions.
-            Right: number of hits. These two features capture describe the
+            Left: energy-weighted standard deviation of all hit z-positions.
+            Right: number of hits. These two features describe the
             shape and size of the particle shower, which are different for
             electromagnetic and hadron initiated showers, without making use of
             its absolute z-position.
@@ -383,17 +373,113 @@ def st_senior_thesis():
             bottom of this section, and I would be much obliged if you took a
             moment to peruse it.
 
-            I first completely overhauled the model building code we had around
-            XGBoost to make it easier to build and keep track of features
-            during feature engineering and recursive feature selection.
-            This proved to be an extremely worthy endevor as the time it saved
-            offset the extra time it took to generate new phenomenologically
-            accurate simulations.
-
-            Through discussions with the collaboration's theorists, I decided
-            to foramlize the visible decay search with the
-            $A' \\rightarrow e^{+}e^{-}$ model. This required me to update the
-            LDMX-Software docker image to work with ...
+            There were a few matters I had to address in preperation for the ML
+            development. I first completely overhauled the model building code
+            we had around XGBoost to make it easier to build and keep track of
+            features during feature engineering and recursive feature
+            selection. This proved to be an extremely worthy endevor as the
+            time it saved offset the extra time it took to generate new
+            phenomenologically accurate simulations. Through discussions with
+            the collaboration's theorists, I decided to foramlize the visible
+            decay search with the visibly decaying dark photon
+            ($A' \\rightarrow e^{+}e^{-}$) model. This required me to update
+            the LDMX software docker image to generate the new accurate
+            MadGraph5-based signal simulations and conduct the ML development
+            in the same environment. Finally, I would need a new trigger for
+            the new search which would need to be done with a minimum beam
+            energy of 8 GeV to cover any new phase space, as opposed to the
+            invisible signal seach which will begin with a beam energy of
+            4 GeV. The trigger is important due to the immense number and rate
+            of events at particle accelerator experiments which challange
+            storage volumes and writing speeds. This simple cut leaves only the
+            more difficult events for the complex and expensive stages of the
+            process, like machine learning models. Figure 8 shows the receiver
+            operating characteristic (ROC) curves from which I chose to make
+            the trigger requirement that the total energy in the first 20
+            layers of the ECal be less than 3 GeV. Figure 9 shows ROC curves
+            for an ECal-based BDT (segmipx), an HCal-based BDT (backv1), and a
+            combined BDT (rsegmipx_backv1).
+        """)
+        trigger_rocs_image = Image.open(
+            os.path.join(ASSETS_DIR, 'thesis_visible_trigger_rocs.jpg')
+        )
+        trigger_rocs_caption = """
+            Figure 8.
+            ROC curves for the efficiencies of visible signal, PN, and late
+            photon conversion against the efficiency of inclusive background
+            after a cut on the energy in the first 20 layers of the ECal. The
+            red star markers indicate a cut on events with 3 GeV or more energy
+            in the first 20 layers of the ECal, which is used as a trigger in
+            this initial study of visible signal. The sharp bends in the PN and
+            late photon conversion samples are an artifact of the number and
+            distribution of energies used to calculate efficiencies.
+        """
+        bdt_rocs_image = Image.open(
+            os.path.join(ASSETS_DIR, 'thesis_visible_bdt_rocs.png')
+        )
+        bdt_rocs_caption = """
+            Figure 9.
+            ROC curves for segmipx, backv1, and rsegmipx backv1, showing the
+            difference in veto power from an ECal-based BDT, an HCal-based BDT,
+            and a BDT that combines them.
+        """
+        st_image_row(
+            [trigger_rocs_image, bdt_rocs_image],
+            [trigger_rocs_caption, bdt_rocs_caption],
+            800
+        )
+        st.image(
+            os.path.join(ASSETS_DIR, 'thesis_visible_bdt_table.jpg'),
+            """
+            Table 2.
+            Efficiencies of ECal PN and visible signal samples after requiring
+            a discriminator value greater than 0.99 for various BDTs. They are
+            ordered principally by decreasing ECal PN efficiencies and
+            subsequently by increasing efficiencies of mA′ = 0.01 GeV signal.
+            The rsegmipx_backv1ANDmaxPE BDT has acceptable signal efficiencies
+            at more appropriate discriminator values, around 0.6.
+            """
+        )
+        st.markdown("""
+            With each model, I checked that decay length bias was minimal
+            by plotting the ratios of number of signal events passing the BDT
+            to signal events passing the trigger, as shown in Figure 10. Note
+            that by combining data from the ECal and HCal the dip in the ratio
+            (decay length bias) at the $z$ corresponding to the insensitive
+            region between the ECal and HCal is eliminated.
+        """)
+        st.image(
+            os.path.join(ASSETS_DIR, 'thesis_visible_decay_bias.png'),
+            """
+            Figure 10.
+            Distributions of the z position of the A′ decay in
+            m(A′) = 0.005 GeV (Left) and m(A′) = 0.05 GeV (Right) samples
+            before and after cuts on the discriminator value, such that ECal PN
+            efficiency is 0.0001 for each BDT. Sloped ratios indicate decay
+            length bias. The dip in ratio of segmipx and the drop-off in the
+            ratio of backv1 around z = 700 mm correspond to the insensitive
+            region between the ECal and HCal. This bias is eliminated in the
+            case of the combined rsegmipx_backv1 BDT, which holds a ratio very
+            near 1 across the whole range of interest.
+            """
+        )
+        st.markdown("""
+            I made similar bias plots to check for transverse momentum bias for
+            both this visible signal search and the primary invisible signal
+            search. These plots and results (ROC curves and efficiency tables)
+            for the invisible search are in my full thesis document which can
+            be downloaded below. As stated in the abstract, the take aways are:
+            1. I conducted the first large statistical tests of LDMX's
+               sensitivity to visible dark matter by
+               - updating large pieces of code for myself and others,
+               - generating new and complete $A' \\rightarrow e^{+}e^{-}$
+                 simulations, and
+               - combining data from different subdetectors (feature
+                 engineering) while taking into account a new potential bias.
+            2. Set a baseline efficiency above 99% for visible signal at the
+               reference background efficiency of $10^{-4}$.
+            3. Increased the efficiency of invisible signal from ~88% to over
+               99% at the same background efficiency of $10^{-4}$.
 
             __Tools used (*New):__
             - Python (NumPy, Matplotlib, XGBoost)
