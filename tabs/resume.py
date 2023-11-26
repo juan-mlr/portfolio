@@ -137,6 +137,13 @@ def st_papers():
 
 def st_all():
     st.markdown(
+        """
+        __Notice:__ [Email](mailto:juan.m.lazaro.ruiz@gmail.com) for PDF version with
+        more contact information.
+        """,
+        unsafe_allow_html=True
+    )
+    st.markdown(
         '### Contents:\n'
         '#### 1. [Education](#education)\n'
         '#### 2. [Technical Skills](#technical-skills)\n'

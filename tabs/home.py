@@ -6,12 +6,19 @@ from utils.styling import image_column_widths
 
 def st_about():
     st.subheader('About', divider=True)
-    st.markdown("""
+    st.markdown(
+        """
         I am an innatley curious and analytical person. I am Interested in data
         science, machine learning, and their applications,
         especially where I can make a positive difference such as in climate,
         energy, medicine, and finance.
-    """)
+
+        I am open to new opportunities and collaborations. Feel free to reach
+        out to me via [email](mailto:juan.m.lazaro.ruiz@gmail.com) or connect
+        with me on [LinkedIn](https://www.linkedin.com/in/j-m-lazaro).
+        """,
+        unsafe_allow_html=True
+    )
 
 def st_bio():
     st.subheader('Bio', divider=True)
