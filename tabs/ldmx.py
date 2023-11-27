@@ -42,11 +42,11 @@ def st_exec_summary():
 
         First, I helped to develop a particle tracking algorithm that rejected
         the last 10 background events in a set of $4.7 \\times 10^{{11}}$
-        simulations (equivalent to $2 \\times 10^{{14}}$ electrons on target).
-        Provided dark matter exists and interacts with Standard Model particles
-        according to the operating model, this was evidence that LDMX's
-        physical design and the accompanying series of analysis methods were
-        capable of formally discovering dark matter.
+        simulations (equivalent to $2.1 \\times 10^{{14}}$ electrons on
+        target). Provided dark matter exists and interacts with Standard Model
+        particles according to the operating model, this is evidence that
+        LDMX's physical design and the accompanying series of analysis methods
+        are capable of formally discovering dark matter.
 
         As a WAVE Fellow at the California Institute of Technology (Caltech),
         I began exploring how LDMX's machine learning model for an invisible
