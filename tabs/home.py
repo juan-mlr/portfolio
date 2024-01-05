@@ -13,6 +13,9 @@ def st_about():
         especially where I can make a positive difference such as in climate,
         energy, medicine, and finance.
 
+        I am currently conducting computational research focusing on graph
+        theory and topology.
+
         I am open to new opportunities and collaborations. Feel free to reach
         out to me via [email](mailto:juan.m.lazaro.ruiz@gmail.com) or connect
         with me on [LinkedIn](https://www.linkedin.com/in/j-m-lazaro).
