@@ -8,7 +8,7 @@ def st_about():
     st.subheader('About', divider=True)
     st.markdown(
         """
-        I am an innatley curious and analytical person. I am Interested in data
+        I am an innately curious and analytical person. I am Interested in data
         science, machine learning, and their applications,
         especially where I can make a positive difference such as in climate,
         energy, medicine, and finance.
