@@ -8,10 +8,13 @@ def st_about():
     st.subheader('About', divider=True)
     st.markdown(
         """
-        I am an innatley curious and analytical person. I am Interested in data
+        I am an innately curious and analytical person. I am Interested in data
         science, machine learning, and their applications,
         especially where I can make a positive difference such as in climate,
         energy, medicine, and finance.
+
+        I am currently conducting computational research focusing on graph
+        theory and topology.
 
         I am open to new opportunities and collaborations. Feel free to reach
         out to me via [email](mailto:juan.m.lazaro.ruiz@gmail.com) or connect
@@ -47,7 +50,7 @@ def st_bio():
         turn, this finally helped me achieve my long sought-after goal of
         pursuing a Ph.D. in physics at MIT. However, by the time I started the
         program, my interests and priorities had begun to change. I did not
-        want to completely pass on a great opportunity I for which I had worked
+        want to completely pass on a great opportunity for which I had worked
         so much. Thus, I pivoted to fusion energy reseach where I could not
         only continue to make use of the computing and analysis skills I had
         developed and enjoyed using during my time as an LDMX collaborator, but
