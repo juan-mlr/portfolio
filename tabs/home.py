@@ -50,7 +50,7 @@ def st_bio():
         turn, this finally helped me achieve my long sought-after goal of
         pursuing a Ph.D. in physics at MIT. However, by the time I started the
         program, my interests and priorities had begun to change. I did not
-        want to completely pass on a great opportunity I for which I had worked
+        want to completely pass on a great opportunity for which I had worked
         so much. Thus, I pivoted to fusion energy reseach where I could not
         only continue to make use of the computing and analysis skills I had
         developed and enjoyed using during my time as an LDMX collaborator, but
