@@ -18,7 +18,7 @@ def main():
 
     st.set_page_config(
         page_icon=':chart_with_upwards_trend:',
-        page_title='Juan Manuel Lazaro Ruiz',
+        page_title='Juan M. Lazaro Ruiz',
         layout='wide',
     )
 
