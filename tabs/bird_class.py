@@ -12,7 +12,7 @@ def st_model():
     st.subheader('Model', divider=True)
     with st.expander('Show/Hide', expanded=True):
         st.markdown("""
-            At the core of this project is an Tensorflow image-classification
+            At the core of this project is a Tensorflow image-classification
             neural network based on the EfficientNetB0 architecture, trained on
             a subset of the
             [BIRDS 525 SPECIES - IMAGE CLASSIFICATION dataset](https://www.kaggle.com/datasets/gpiosenka/100-bird-species)
