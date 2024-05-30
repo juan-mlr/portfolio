@@ -11,7 +11,7 @@ def st_about():
         I am an innately curious and analytical person. I am Interested in data
         science, machine learning, and their applications,
         especially where I can make a positive difference such as in climate,
-        energy, medicine, and finance.
+        energy, sustainability, education, medicine, and finance.
 
         I am currently conducting computational research focusing on graph
         theory and topology.
