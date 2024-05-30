@@ -18,13 +18,13 @@ def main():
 
     st.set_page_config(
         page_icon=':chart_with_upwards_trend:',
-        page_title='Juan Manuel Lazaro Ruiz',
+        page_title='Juan M. Lazaro Ruiz',
         layout='wide',
     )
 
     st.markdown("""
         <style>
-            .block-container {padding-top: 0 !important;}
+            .block-container {padding-top: 1rem !important;}
         </style>""",
         unsafe_allow_html=True,
     )
@@ -33,7 +33,7 @@ def main():
     left_col, main_col, right_col = st.columns([20, 100, 20])
 
     with main_col:
-        st.title('Juan Manuel Lazaro Ruiz')
+        st.title('Juan M. Lazaro Ruiz')
         st.markdown(
             ':e-mail: [juan.m.lazaro.ruiz@gmail.com](mailto:juan.m.lazaro.ruiz@gmail.com)'
             ' | [![text](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/j-m-lazaro)'
