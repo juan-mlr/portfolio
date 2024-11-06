@@ -18,7 +18,7 @@ def st_about():
 
         I am open to new opportunities and collaborations. Feel free to reach
         out to me via [email](mailto:juan.m.lazaro.ruiz@gmail.com) or connect
-        with me on [LinkedIn](https://www.linkedin.com/in/j-m-lazaro).
+        with me on [LinkedIn](https://www.linkedin.com/in/juan-mlr).
         """,
         unsafe_allow_html=True
     )
