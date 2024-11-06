@@ -19,7 +19,7 @@ def st_readme_introduction():
             3. If you like the results, it won't keep re-recommending the same
                small set of songs as some other recommendation engines do.
         """)
-        st.image('https://raw.githubusercontent.com/jmlazaro25/special-song-search/main/images/display_example.png')
+        st.image('https://raw.githubusercontent.com/juan-mlr/special-song-search/main/images/display_example.png')
 
 def st_readme_build():
     st.subheader('Build', divider=True)
@@ -40,7 +40,7 @@ def st_readme_data_preview():
             In the modest data collection that has been done so far, the top 30
             recording tags account for slightly over half of tags used:
         """)
-        st.image('https://raw.githubusercontent.com/jmlazaro25/special-song-search/main/images/recording_tag_freq.png')
+        st.image('https://raw.githubusercontent.com/juan-mlr/special-song-search/main/images/recording_tag_freq.png')
         st.markdown("""
             Notably, rock has several variations appearing in the top 30
             recording tags: "alternative rock," "pop rock," "indie rock,"
@@ -50,7 +50,7 @@ def st_readme_data_preview():
             being labelled "rock" and one or more variations vs. just being
             labelled "rock")?
         """)
-        st.image('https://raw.githubusercontent.com/jmlazaro25/special-song-search/main/images/rock_heatmap.png')
+        st.image('https://raw.githubusercontent.com/juan-mlr/special-song-search/main/images/rock_heatmap.png')
         st.markdown(
             """
             This heatmap shows the count of recordings with a tag-pair as a
